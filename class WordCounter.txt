@@ -1,0 +1,17 @@
+class WordCounter:
+    def __init__(self, text):
+        self.text = text              # stores input string
+        self.word_count = {}          # empty dictionary to store counts
+
+    def count_words(self):
+        words = self.text.split()     # splits the text into words by whitespace
+        for word in words:
+            word = word.lower()       # make it lowercase (so "Python" and "python" are same)
+            if word in self.word_count:
+                self.word_count[word] += 1   # increment if word already exists
+            else:
+                self.word_count[word] = 1    # add new word with count 1
+
+    def display_counts(self):
+        for word, count in self.word_count.items():
+            print(f"{word}: {count}")
